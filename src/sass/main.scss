@@ -1,0 +1,103 @@
+
+// COLORS
+$colour-blue: #00afdb;
+$colour-white: #fff;
+$colour-black: #000;
+$colour-grey-dark: #777;
+$colour-grey-light: #f7f7f7;
+
+// FONT
+$default-font-size: 1.6rem;
+
+
+// GRID
+$grid-width: 114rem;
+$gutter-horizontal: 1.5rem;
+$gutter-vertical: 3rem;
+
+@mixin clearfix{
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  font-family: arial;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $colour-black;
+  padding: 3rem;
+  box-sizing: border-box;
+}
+
+.list-header {
+  text-transform: uppercase;
+  color: $colour-blue;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.board {
+  max-width: $grid-width;
+  margin: 0 auto;
+  @include clearfix;
+  background-color: $colour-white;
+}
+
+.card {
+  width: calc((100% - 8 * #{$gutter-horizontal}) / 4);
+  float: left;
+  margin-left: $gutter-horizontal;
+  margin-right: $gutter-horizontal;
+  margin-top: $gutter-vertical;
+  margin-bottom: $gutter-vertical;
+  text-align: center;
+  height: 30vh;
+  outline: 1px solid $colour-black;
+  background-color: $colour-grey-light;
+  opacity: 1;
+  transition: all 1s;
+
+  &:hover {
+    background-color: $colour-grey-dark;
+    cursor: pointer;
+  }
+
+  &:hover &-pic-img {
+    filter: blur(3px) brightness(80%);
+  }
+
+  &:hover &-name {
+    color: $colour-white;
+  }
+
+
+  &-pic {
+    margin-top: 1rem;
+
+    &-img {
+      height: 18rem;
+      transition: all 1s;
+    }
+  }
+
+  &-name {
+    text-transform: uppercase;
+    height: 5rem;
+    font-size: 1.3rem;
+    transition: all 1s;
+  }
+}

@@ -9,7 +9,7 @@ describe('App', () => {
   const app = shallow(<App {...props}/>);
 
   it('renders the title', () => {
-    expect(app.find('h2').text()).toEqual('Brewdog Beer List');
+    expect(app.find('.list-header').text()).toEqual('Brewdog Beer List');
   });
 
   it('creates the correct number of divs', () => {
@@ -17,8 +17,14 @@ describe('App', () => {
   });
 
   it('names the beers correctly', () => {
-    app.find('h4').forEach((beerName, index) => {
+    app.find('.card-name').forEach((beerName, index) => {
       expect(beerName.text()).toEqual(beers[index].name);
+    });
+  });
+
+  it('create the correct image url', () => {
+    app.find('.card-pic-img').forEach((beerImageUrl, index) => {
+      expect(beerImageUrl.prop('src')).toEqual(beers[index].image_url);
     });
   });
 });
