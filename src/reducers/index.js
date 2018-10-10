@@ -1,4 +1,4 @@
-import { SET_BEERS } from '../actions';
+import { SET_BEERS, SORT_BEERS } from '../actions';
 
 function beers(state = [], action) {
   switch(action.type) {
@@ -9,5 +9,13 @@ function beers(state = [], action) {
   }
 }
 
+function sorting(state = {}, action) {
+  switch(action.type) {
+    case SORT_BEERS:
+    return action.sorting;
+    default:
+    return state;
+  }
+}
 
 export default beers;

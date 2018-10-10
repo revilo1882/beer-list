@@ -1,0 +1,102 @@
+.list-header {
+  text-transform: uppercase;
+  color: $colour-blue;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.board {
+  max-width: $grid-width;
+  margin: 0 auto;
+  @include clearfix;
+  background-color: $colour-white;
+}
+
+.card {
+  width: calc((100% - 8 * #{$gutter-horizontal}) / 4);
+  float: left;
+  margin-left: $gutter-horizontal;
+  margin-right: $gutter-horizontal;
+  margin-top: $gutter-vertical;
+  margin-bottom: $gutter-vertical;
+  text-align: center;
+  height: 30rem;
+  outline: 1px solid $colour-blue;;
+  background-color: $colour-grey-light;
+  opacity: 1;
+  position: relative;
+  text-align: center;
+  transition: all .5s;
+
+  &:hover {
+    background-color: $colour-grey-dark;
+    background-image: none;
+    cursor: pointer;
+  }
+
+  &-pic {
+    height: 70%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s;
+  }
+
+  &-tagline {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    height: 3rem;
+    margin-bottom: 6rem;
+    opacity: 0;
+    color: $colour-white;
+    transition: all .5s;
+  }
+
+  &-shape {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    border: .5rem solid $colour-white;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    margin-bottom: 4rem;
+    transition: all .5s;
+
+    &-caption {
+      font-size: 2.7rem;
+      color: $colour-white;
+      opacity: 1;
+    }
+  }
+
+  &-name {
+    height: 4rem;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    transition: all .5s;
+    transform: scale(.9);
+  }
+
+  &:hover &-pic {
+    filter: blur(3px) brightness(80%);
+  }
+
+  &:hover &-name {
+    color: $colour-white;
+    transform: translateY(-1rem);
+  }
+
+  &:hover &-tagline {
+    opacity: 1;
+    z-index: 2;
+    transform: translateY(2rem);
+    left: 0;
+  }
+
+  &:hover &-shape {
+    opacity: 1;
+  }
+}

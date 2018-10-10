@@ -13,18 +13,30 @@ describe('App', () => {
   });
 
   it('creates the correct number of divs', () => {
-    expect(app.find('.card').length).toEqual(beers.length);
+    expect(app.find('.card div').length).toEqual(beers.length);
   });
 
   it('names the beers correctly', () => {
-    app.find('.card-name').forEach((beerName, index) => {
+    app.find('h3').forEach((beerName, index) => {
       expect(beerName.text()).toEqual(beers[index].name);
     });
   });
 
-  it('create the correct image url', () => {
-    app.find('.card-pic-img').forEach((beerImageUrl, index) => {
+  it('creates the correct image url', () => {
+    app.find('img').forEach((beerImageUrl, index) => {
       expect(beerImageUrl.prop('src')).toEqual(beers[index].image_url);
+    });
+  });
+
+  it('creates the correct tagline', () => {
+    app.find('h4').forEach((beerTagline, index) => {
+      expect(beerTagline.text()).toEqual(beers[index].tagline);
+    });
+  });
+
+  it('creates the correct abv', () => {
+    app.find('h2').forEach((beerAbv, index) => {
+      expect(beerAbv.text()).toEqual(`${beers[index].abv}%`);
     });
   });
 });
