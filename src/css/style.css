@@ -46,10 +46,6 @@ body {
   position: relative;
   text-align: center;
   transition: all .5s; }
-  .card:hover {
-    background-color: #777;
-    background-image: none;
-    cursor: pointer; }
   .card-pic {
     height: 70%;
     position: absolute;
@@ -60,8 +56,9 @@ body {
   .card-tagline {
     font-size: 1.3rem;
     margin-top: 1rem;
-    height: 3rem;
-    margin-bottom: 6rem;
+    height: 7rem;
+    padding: .1rem;
+    margin-bottom: 3rem;
     opacity: 0;
     color: #fff;
     transition: all .5s; }
@@ -74,18 +71,22 @@ body {
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     transition: all .5s; }
     .card-shape-caption {
       font-size: 2.7rem;
       color: #fff;
-      opacity: 1; }
+      transform: translateY(20%); }
   .card-name {
     height: 4rem;
     text-transform: uppercase;
     font-size: 1.3rem;
     transition: all .5s;
     transform: scale(0.9); }
+  .card:hover {
+    background-color: #777;
+    background-image: none;
+    cursor: pointer; }
   .card:hover .card-pic {
     filter: blur(3px) brightness(80%); }
   .card:hover .card-name {
