@@ -35,39 +35,32 @@ The app is also deployed on Heroku [here](https://tranquil-sands-97349.herokuapp
 
 ## Approach
 
-- My first course of action was to decide on the tech stack and I chose to build the project in React and use Sass for my styling language as I have been learning about both of these recently.
+- My first course of action was to decide on the project's tech stack, I chose [React](https://reactjs.org/) for the frontend library and [Sass](https://sass-lang.com/) to compile the style sheets as I have been learning about both of these recently.
 
-- Next I investigated and built the basis for a react project in Webpack as this was listed as a plus.
+- Next I investigated and built the basis for a react project using [Webpack](https://webpack.js.org/) and [Babel](https://babeljs.io/) I wanted to learn about compilers and how to create a React project from scratch.
 
-- However by the time I got to looking at adding Jest I felt I would spend too much time so I built the project using create-react-app and would later use Webpack to rebuild the projectr.
+- However by the time I got to looking at adding Jest I felt I would spend too much time so I built the project using [create-react-app](https://github.com/facebook/create-react-app) and would later use Webpack to rebuild the project with Jest.
 
-- So initially I set up the react app using create-react-app, fetched the data from the api and used Redux to store the data. I want to understand Redux on a deeper level and was happy with this setup I was able to render a list of beers on a webpage.
+- I set up the react app using create-react-app, fetched the data from the api and used [Redux](https://redux.js.org/) to store the data. I want to understand Redux on a deeper level and was happy with this setup I was able to render a list of beers on a webpage.
 
-- My next task was to implement a card system to render the images and names of each beer, luckily I had a system in place from using [this css and sass course](https://www.udemy.com/advanced-css-and-sass/) and would later further the design to make the app responsive.
+- My next task was to implement a card system to render the images and names of each beer, luckily I had a system in place from using [this css and sass course](https://www.udemy.com/advanced-css-and-sass/).
 
 - Once this was complete I wanted to use some other css tricks I had learned from the course so I added further design when each card is hovered.
 
-- Although I Initially stored the data from the api using Redux, by the time I got to sorting the data I decided for the purposes of this test it would take too much time to learn and took the decision to remove the tore which is why the final app doesn't use Redux.
+- Although I Initially stored the data from the api using Redux, when it got to sorting the data I decided for the purposes of this test it would take too much time to learn the process and took the decision to remove the store which is why the final app doesn't use Redux.
 
-- Sorting the data caused a few problems including an error 'objects are not valid as a react child' occurring only when sorting by name which I managed breakdown and resolve by taking the function call out of the Render method.  Due to this I have a sorting component which I intend to look at when I have more time.
+- Sorting the data caused a few problems including an error 'objects are not valid as a react child' occurring only when sorting by name which I managed breakdown and resolve by taking the function call out of the Render method.
 
-- I decided early on that I wanted to make the app responsive using media queries as this is something I had recently learned and was eager to try out in this project.  I implemented a 1 to 4 card system depending on the screen size and I'm happy with the result.
-
-## Challenges
-
-- Redux with sorting and webpack with Jest.
-- First time building a card system and a responsive website.
-- Sorting
-- Functional component
+- I decided early on that I wanted to make the app responsive using media queries as this is something I had recently learned and was eager to try out in this project.  I implemented a system rendering from 1 to 4 cards per line depending on the screen size and I'm happy with the result.
 
 
 ## Further Work
 
 Given more time I would like to implement the following:
 
-- Add reverse Sorting for each of the options.
+- Add a reverse sorting function for each of the options.
 - The volume sorting presumes each of the units is litres so given more time I would like to try assign a value to the unit and multiply it by the value.
-- investigate the 'objects are not valid as a react child' error and convert the sorting component into a function.
-- Build with Webpack and Redux.
-- Add an isLoading state to the app and have an error catch on the api
-- Mock the api with a Sinon spy to improve test coverage.
+- Investigate the 'objects are not valid as a react child' error and why it was only occuring for the name sort.  Through this I would like to convert the sorting component into a function called in the Select component.
+- Build the same project using Webpack and Redux.
+- Add an isLoading state to the app and have error catching on the api.
+- Mock the api with a [Sinon](https://sinonjs.org/) spy to improve test coverage.
