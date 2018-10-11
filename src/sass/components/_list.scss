@@ -21,6 +21,18 @@
   text-align: center;
   transition: all .5s;
 
+  @include respond(tab-land) {
+    width: calc((100% - 6 * #{$gutter-horizontal}) / 3);
+  }
+
+  @include respond(tab-port) {
+    width: calc((100% - 4 * #{$gutter-horizontal}) / 2);
+  }
+
+  @include respond(phone) {
+    width: calc((100% - 2 * #{$gutter-horizontal}));
+  }
+
   &-pic {
     height: 70%;
     position: absolute;

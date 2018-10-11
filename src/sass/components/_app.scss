@@ -3,4 +3,16 @@
   color: $colour-blue;
   font-size: 5rem;
   text-align: center;
+
+  @include respond(tab-land) {
+    font-size: 4rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 2rem;
+  }
 }

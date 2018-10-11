@@ -10,6 +10,8 @@ export class App extends Component {
 	}
 
 	componentDidMount() {
+		this.setState({ isLoading: true });
+
 		fetch('https://api.punkapi.com/v2/beers')
 			.then(response => response.json())
       .then(beers => this.setState({ beers }));

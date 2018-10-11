@@ -8,4 +8,22 @@ select {
   margin-bottom: $gutter-vertical;
   transform: translateX(-50%);
   border: solid $colour-black .1rem;
+
+  @include respond(tab-land) {
+    font-size: 1.4rem;
+    width: 18rem;
+    height: 3.5rem;
+  }
+
+  @include respond(tab-port) {
+    font-size: 1.2rem;
+    width: 14rem;
+    height: 3rem;
+  }
+
+  @include respond(phone) {
+    font-size: 1rem;
+    width: 12rem;
+    height: 2.5rem;
+  }
 }
