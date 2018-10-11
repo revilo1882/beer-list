@@ -1,32 +1,30 @@
 import React, { Component } from 'react';
 import { options } from '../data/options'
-import Abv from './SortBy/Abv'
-import FirstBrewed from './SortBy/FirstBrewed'
-import Name from './SortBy/Name'
-import Volume from './SortBy/Volume'
+import { sortAbv, sortFirstBrewed, sortName, sortVolume } from './functions/SortBy'
 
 class Sorting extends Component {
-  asignSorting(items, value) {
+  asignSorting(beers, value) {
     if (value === options[0].value) {
-      return <Abv beers={items} />
+      return sortAbv(beers)
     }
     else if (value === options[1].value) {
-      return <FirstBrewed beers={items} />
+      return sortFirstBrewed(beers)
     }
     else if (value === options[2].value) {
-      return <Name beers={items} />
+      return sortName(beers)
     }
     else if (value === options[3].value) {
-      return <Volume beers={items} />
+      return sortVolume(beers)
     }
   }
 
   render(){
     const { beers, value } = this.props;
+    this.asignSorting(beers, value);
 
     return (
       <div>
-        {this.asignSorting(beers, value)}
+
       </div>
     )
   }

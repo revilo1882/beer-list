@@ -35,5 +35,5 @@ describe('Select', () => {
       select.find('select').simulate('change', {target: { value: options[1].value}});
       expect(select.state().value).toEqual(options[1].value);
     });
-  })
+  });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Sorting from './Sorting';
 import { options } from '../data/options'
 import { beers } from '../data/fixtures'
@@ -13,7 +13,7 @@ const props4 = { beers, value: options[3].value };
 describe('Sorting', () => {
   describe('sorts by abv', () => {
     beforeEach(() => {
-			mount(<Sorting {...props}/>);
+			shallow(<Sorting {...props}/>);
 		});
 		it('sorts the first option', () => {
 			expect(props.beers[0]).toEqual(beers2[1]);
@@ -28,7 +28,7 @@ describe('Sorting', () => {
 
   describe('sort by first brewed', () => {
     beforeEach(() => {
-			mount(<Sorting {...props2}/>);
+			shallow(<Sorting {...props2}/>);
 		});
     it('sorts the first option', () => {
 			expect(props2.beers[0]).toEqual(beers2[2]);
@@ -41,9 +41,24 @@ describe('Sorting', () => {
     });
 	});
 
+  describe('sort by name', () => {
+    beforeEach(() => {
+      shallow(<Sorting {...props3}/>);
+    });
+    it('sorts the first option', () => {
+      expect(props3.beers[0]).toEqual(beers2[0]);
+    });
+    it('sorts the second option', () => {
+      expect(props3.beers[1]).toEqual(beers2[2]);
+    });
+    it('sorts the third option', () => {
+      expect(props3.beers[2]).toEqual(beers2[1]);
+    });
+  });
+
   describe('sort by volume', () => {
     beforeEach(() => {
-      mount(<Sorting {...props4}/>);
+      shallow(<Sorting {...props4}/>);
     });
     it('sorts the first option', () => {
       expect(props4.beers[0]).toEqual(beers2[1]);
