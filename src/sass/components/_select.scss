@@ -1,0 +1,10 @@
+select {
+  font-size: 1.6rem;
+  background-color: $colour-blue;
+  color: $colour-white;
+  width: 20rem;
+  height: 3rem;
+  margin-left: 50%;
+  margin-bottom: $gutter-vertical;
+  transform: translateX(-50%);
+}

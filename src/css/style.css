@@ -99,3 +99,13 @@ body {
     left: 0; }
   .card:hover .card-shape {
     opacity: 1; }
+
+select {
+  font-size: 1.6rem;
+  background-color: #00afdb;
+  color: #fff;
+  width: 20rem;
+  height: 3rem;
+  margin-left: 50%;
+  margin-bottom: 3rem;
+  transform: translateX(-50%); }
