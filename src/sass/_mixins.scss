@@ -8,12 +8,12 @@
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {
-    @media (max-width: 450px) { @content };
+    @media (max-width: 32em) { @content };
   }
   @if $breakpoint == tab-port {
-    @media (max-width: 700px) { @content };
+    @media (max-width: 50em) { @content };
   }
   @if $breakpoint == tab-land {
-    @media (max-width: 900px) { @content };
+    @media (max-width: 65em) { @content };
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { options } from '../data/options'
 
 class Sort extends Component {
-  sortBeers(value, beers) {
+  sortBeers(beers, value) {
     if (value === options[0].value) {
       this.sortAbv(beers)
     }
@@ -52,9 +52,10 @@ class Sort extends Component {
   }
 
   render(){
+    const { beers, value } = this.props
     return (
       <div>
-        {this.sortBeers(this.props.value, this.props.beers)}
+        {this.sortBeers(beers, value)}
       </div>
     )
   }

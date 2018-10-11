@@ -22,7 +22,11 @@ class Select extends Component {
     const { options, value } = this.state
     return (
       <div>
-        <select onChange={this.handleChange} defaultValue={value} className='select-box'>
+        <select
+          onChange={this.handleChange} 
+          defaultValue={value}
+          className='select-box'
+        >
           {options.map(item => (
             <option key={item.value} value={item.value}>
               {item.name}
