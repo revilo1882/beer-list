@@ -1,10 +1,8 @@
 # Avocet Frontend Engineer Technical Test
 
-Using the framework/library of your choosing, and consuming [Brewdog's Punk API V2](https://punkapi.com/documentation/v2) implement a simple web app with a card-based UI to display a list of beers. It should have the ability to view details of a specific beer. 
+## Introduction
 
-Most architecture and design aspects are left up to you to decide on, using your best judgement.
-
-In case you can't complete some requirements, explanations on _why_ they couldn't be completed, and most importantly _how_ you would have solved them, are also taken into account
+A small interactive front end app built in three days with React and consuming [Brewdog's Punk API V2](https://punkapi.com/documentation/v2) with a card-based UI to display a list of beers.
 
 ## Requirements
 
@@ -17,52 +15,59 @@ In case you can't complete some requirements, explanations on _why_ they couldn'
 	- First brewed
 - [ ] Should have a README file containing general information about the project and setup instructions
 
-## Other considerations
+## Installation
 
-- You can use any framework of your choosing, or no framework at all if you chose to
-- Using [Webpack](https://webpack.js.org/) is a plus
-- It's recommended you use a list or grid view to display the collection
-- It's recommended you use a master/detail layout or detail only layout
-- There's no design so you can use your best judgement in regards to UI layout
+Clone the repository then in the command line run:
 
-## API example endpoints
-
-- Get beers list: `https://api.punkapi.com/v2/beers`
-- Get beer by id: `https://api.punkapi.com/v2/beers/1`
-
-> For more information on request parameters and API in general please go to [Brewdog's Punk API V2](https://punkapi.com/documentation/v2)
-
-## API example beer object
-
+```bash
+$ cd beer-list
+$ npm install
+$ npm start
 ```
-{
-	"abv": 6.5,
-	"attenuation_level": 76,
-	"boil_volume": ...,
-	"brewers_tips": "Mix the powders into a paste before adding to the wort kettle. This will prevent the powders from balling up and not bringing the full flavour effect.",
-	"contributed_by": "Sam Mason <samjbmason>",
-	"description": "Never Mind the Anabolics, a 6.5% India Pale Ale brewed with copious amounts of performance-enhancing natural ingredients. Brewed to commemorate the 2012 Olympics and its merry marketing bandwagon.",
-	"ebc": 23,
-	"first_brewed": "06/2012",
-	"food_pairing": ...,
-	"ibu": 35,
-	"id": 75,
-	"image_url": "https://images.punkapi.com/v2/75.png",
-	"ingredients": {
-		...
-	},
-	"method": {
-		...
-	},
-	"name": "Never Mind The Anabolics",
-	"ph": 4.4,
-	"srm": 11.5,
-	"tagline": "Performance-Enhancing India Pale Ale.",
-	"target_fg": 1012,
-	"target_og": 1050,
-	"volume": {
-		"unit": "liters",
-		"value": 20
-	}
-}
+
+To run the test and check the coverage run the below commands:
+
+```bash
+$ npm test
+$ npm test -- --coverage
 ```
+The app is also deployed on Heroku [here](https://tranquil-sands-97349.herokuapp.com/).
+
+## Approach
+
+- My first course of action was to decide on the tech stack and I chose to build the project in React and use Sass for my styling language as I have been learning about both of these recently.
+
+- Next I investigated and built the basis for a react project in Webpack as this was listed as a plus.
+
+- However by the time I got to looking at adding Jest I felt I would spend too much time so I built the project using create-react-app and would later use Webpack to rebuild the projectr.
+
+- So initially I set up the react app using create-react-app, fetched the data from the api and used Redux to store the data. I want to understand Redux on a deeper level and was happy with this setup I was able to render a list of beers on a webpage.
+
+- My next task was to implement a card system to render the images and names of each beer, luckily I had a system in place from using [this css and sass course](https://www.udemy.com/advanced-css-and-sass/) and would later further the design to make the app responsive.
+
+- Once this was complete I wanted to use some other css tricks I had learned from the course so I added further design when each card is hovered.
+
+- Although I Initially stored the data from the api using Redux, by the time I got to sorting the data I decided for the purposes of this test it would take too much time to learn and took the decision to remove the tore which is why the final app doesn't use Redux.
+
+- Sorting the data caused a few problems including an error 'objects are not valid as a react child' occurring only when sorting by name which I managed breakdown and resolve by taking the function call out of the Render method.  Due to this I have a sorting component which I intend to look at when I have more time.
+
+- I decided early on that I wanted to make the app responsive using media queries as this is something I had recently learned and was eager to try out in this project.  I implemented a 1 to 4 card system depending on the screen size and I'm happy with the result.
+
+## Challenges
+
+- Redux with sorting and webpack with Jest.
+- First time building a card system and a responsive website.
+- Sorting
+- Functional component
+
+
+## Further Work
+
+Given more time I would like to implement the following:
+
+- Add reverse Sorting for each of the options.
+- The volume sorting presumes each of the units is litres so given more time I would like to try assign a value to the unit and multiply it by the value.
+- investigate the 'objects are not valid as a react child' error and convert the sorting component into a function.
+- Build with Webpack and Redux.
+- Add an isLoading state to the app and have an error catch on the api
+- Mock the api with a Sinon spy to improve test coverage.
