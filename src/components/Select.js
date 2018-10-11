@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Sort from './Sort';
 import List from './List';
 import { options } from '../data/options'
 
@@ -28,6 +29,7 @@ class Select extends Component {
             </option>
           ))}
         </select>
+        <Sort beers={this.props.beers} value={value} />
         <List beers={this.props.beers} />
       </div>
     )
