@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Sort from './Sort';
+import Sorting from './Sorting';
 import List from './List';
 import { options } from '../data/options'
 
@@ -23,7 +23,7 @@ class Select extends Component {
     return (
       <div>
         <select
-          onChange={this.handleChange} 
+          onChange={this.handleChange}
           defaultValue={value}
           className='select-box'
         >
@@ -33,7 +33,7 @@ class Select extends Component {
             </option>
           ))}
         </select>
-        <Sort beers={this.props.beers} value={value} />
+        <Sorting beers={this.props.beers} value={value} />
         <List beers={this.props.beers} />
       </div>
     )
