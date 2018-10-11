@@ -108,4 +108,5 @@ select {
   height: 3rem;
   margin-left: 50%;
   margin-bottom: 3rem;
-  transform: translateX(-50%); }
+  transform: translateX(-50%);
+  border: solid #000 0.1rem; }

@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { setBeers } from '../actions';
 import Select from './Select'
 
 export class App extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			beers: []
+		}
+	}
+
 	componentDidMount() {
-    if (this.props.beers.length === 0) {
-			fetch('https://api.punkapi.com/v2/beers')
-				.then(response => response.json())
-        .then(json => this.props.setBeers(json));
-    }
+		fetch('https://api.punkapi.com/v2/beers')
+			.then(response => response.json())
+      .then(beers => this.setState({ beers }));
   }
 
 	render() {
 		return (
 			<div>
         <h1 className='list-header'>Brewdog Beer List</h1>
-				<Select beers={this.props.beers} />
+				<Select beers={this.state.beers} />
 			</div>
 		);
 	}
 }
 
-function mapStateToProps(state) {
-	return { beers: state }
-}
-
-export default connect(mapStateToProps, { setBeers })(App);
+export default App;

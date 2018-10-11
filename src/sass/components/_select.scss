@@ -7,4 +7,5 @@ select {
   margin-left: 50%;
   margin-bottom: $gutter-vertical;
   transform: translateX(-50%);
+  border: solid $colour-black .1rem;
 }
